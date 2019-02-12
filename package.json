@@ -6,20 +6,18 @@
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Xavier Cambar <xcambar@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "git@github.com:xcambar/ember-cli-native-stencil.git",
   "scripts": {
     "build": "ember build",
     "lint": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each",
-    "prepublishOnly": "cp ../../README.md .",
-    "postpublish": "rm README.md"
+    "test:all": "ember try:each"
   },
   "dependencies": {
     "broccoli-file-creator": "^2.1.1",
