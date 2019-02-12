@@ -1,5 +1,5 @@
 {
-  "name": "ember-cli-stencil",
+  "name": "ember-cli-native-stencil",
   "version": "0.4.0",
   "description": "Addon for working with Stencil.js components in Ember",
   "keywords": [
@@ -16,7 +16,7 @@
     "build": "ember build",
     "lint": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
-    "test": "ember test && ava tests-node",
+    "test": "ember test",
     "test:all": "ember try:each",
     "prepublishOnly": "cp ../../README.md .",
     "postpublish": "rm README.md"
@@ -33,7 +33,6 @@
     "theredoc": "^1.0.0"
   },
   "devDependencies": {
-    "ava": "1.0.0-beta.8",
     "broccoli-asset-rev": "^2.4.5",
     "ember-cli": "~3.1.4",
     "ember-cli-dependency-checker": "^2.0.0",

@@ -9,7 +9,7 @@ const debug = require('debug');
 const StencilCollection = require('./lib/stencil-collection');
 
 module.exports = {
-  name: 'ember-cli-stencil',
+  name: 'ember-cli-native-stencil',
 
   // Get the parent's dependencies, including `devDependencies` for Ember addons
   getParentDependencies() {
