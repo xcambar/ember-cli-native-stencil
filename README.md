@@ -23,6 +23,9 @@ ember install ember-cli-native-stencil
 Usage
 ------------------------------------------------------------------------------
 
+> :warning: Please make sure you have TypeScript installed in the destination app.
+> This will change in the future.
+
 This addon works at build time, which means that once it is installed, there's
 nothing left to do from the developer.
 

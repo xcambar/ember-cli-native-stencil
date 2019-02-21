@@ -1,5 +1,8 @@
 'use strict';
 
+// Allows us to use TS to parse the Stencil config file
+require('ts-node').register();
+
 const path = require('path');
 
 const MergeTree = require('broccoli-merge-trees');
@@ -62,16 +65,20 @@ module.exports = {
     let trees = this.stencilCollections.reduce(
       (acc, collection) => {
         let {
-          pkg: { name, root }
+          pkg: { root },
+          path: collectionPath
         } = collection;
+        let {
+          config: { namespace }
+        } = require(path.resolve(collectionPath, 'stencil.config.ts'))
         let loader = new Funnel(root, {
           srcDir: 'dist',
-          files: [`${name}.js`],
+          files: [`${namespace}.js`],
           destDir: 'assets'
         });
         let components = new Funnel(root, {
-          srcDir: `dist/${name}`,
-          destDir: `assets/${name}`
+          srcDir: `dist/${namespace}`,
+          destDir: `assets/${namespace}`
         });
         return [...acc, loader, components];
       },
@@ -85,7 +92,9 @@ module.exports = {
       return;
     }
     return this.stencilCollections.reduce((acc, collection) => {
-      let scriptTag = `<script src="${rootURL}assets/${collection.name}.js"></script>`;
+      let scriptTag = `<script src="${rootURL}assets/${
+        collection.name
+      }.js"></script>`;
       return `${acc}${scriptTag}`;
     }, '');
   }
